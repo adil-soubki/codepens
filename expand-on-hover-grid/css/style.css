@@ -1,0 +1,55 @@
+html {
+  background: #ECECEC;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.grid-wrapper {
+  background-color: #FFFFFF;
+  width: 8em;
+  height: 8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+.grid-row {
+  height: 4em;
+}
+.square-wrapper {
+  float: left;
+  width: 4em;
+  height: 4em;
+}
+.square {
+  -webkit-transition: -webkit-transform 0.1s;
+  -moz-transition: -moz-transform 0.1s;
+  -ms-transition: -ms-transform 0.1s;
+  transition: transform 0.1s;
+  width: 100%;
+  height: 100%;
+}
+.square:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
+  -webkit-transition: -webkit-transform 0.25s;
+  -moz-transition: -moz-transform 0.25s;
+  -ms-transition: -ms-transform 0.25s;
+  transition: transform 0.25s;
+}
+.square.red {
+  background-color: #EA522B;
+}
+.square.green {
+  background-color: #83BC00;
+}
+.square.blue {
+  background-color: #2FA1EF;
+}
+.square.yellow {
+  background-color: #FBBC08;
+}

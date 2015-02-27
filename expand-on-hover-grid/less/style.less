@@ -1,0 +1,67 @@
+// Styling
+html {
+  background: #ECECEC;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+// Demo
+@grid-cols: 2;
+@grid-rows: 2;
+@square-height: 4em;
+@square-width: 4em;
+//TODO: Add gutter/margins between squares
+//TODO: Write mix-ins for all the vendor css stuff
+//TODO: Animate in/out options
+
+.grid-wrapper {
+  background-color: #FFFFFF;
+  width: @grid-cols * @square-width;
+  height: @grid-rows * @square-height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+.grid-row {
+  height: @square-height;
+}
+.square-wrapper {
+  float: left;
+  width: @square-width;
+  height: @square-height;
+}
+.square {
+  -webkit-transition: -webkit-transform 0.1s;
+  -moz-transition: -moz-transform 0.1s;
+  -ms-transition:  -ms-transform 0.1s;
+  transition:  transform 0.1s;
+  width: 100%;
+  height: 100%;
+  
+  &:hover {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+    -webkit-transition: -webkit-transform 0.25s;
+    -moz-transition: -moz-transform 0.25s;
+    -ms-transition:  -ms-transform 0.25s;
+    transition:  transform 0.25s;
+  }
+  
+  &.red {
+    background-color: #EA522B;
+  }
+  &.green {
+    background-color: #83BC00;
+  }
+  &.blue {
+    background-color: #2FA1EF;
+  }
+  &.yellow {
+    background-color: #FBBC08;
+  }
+}
