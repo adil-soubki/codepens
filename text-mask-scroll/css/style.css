@@ -1,0 +1,15 @@
+.title {
+  font-family: Impact;
+  font-weight: 800;
+  color: transparent;
+  font-size:150px;
+  background: url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-background-clip: text;
+  position:relative;
+  text-align:center;
+  letter-spacing: 8px;
+}
