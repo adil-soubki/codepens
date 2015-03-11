@@ -1,0 +1,83 @@
+/**\
+|  | Variables
+\**/
+$MAX_COLS: 24;
+$SM: 768px; 
+$MD: 992px;
+$LG: 1200px;
+
+/**\
+|  | Grid System
+\**/
+.row {
+  box-sizing: border-box;
+  &:before, &:after {
+      content: '';
+      display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.col {
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  display: block;
+}
+
+@for $i from 1 through $MAX_COLS {
+  .row-#{$i} {
+    @for $j from 1 through $i {
+      .col-#{$j} {
+        width: calc(#{$j/$i}*100%);
+      }
+      .offset-#{$j} {
+        margin-left: calc(#{$j/$i}*100%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $SM) {
+  @for $i from 1 through $MAX_COLS {
+    .row-#{$i} {
+      @for $j from 1 through $i {
+        .col-#{$j} {
+          float: none;
+          width: auto;
+        }
+        .offset-#{$j} {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+/**\
+|  | Styles
+\**/
+.row {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.col {
+    background: #eee;
+    border: 1px solid #ccc;
+    color: #777;
+    padding: 5px;
+    min-height: 30px;
+    text-align: center;
+}
+@media only screen and (max-width: $SM) {
+  .row {
+    margin-bottom: 0;
+  }
+  .col {
+    margin-bottom: 10px;
+  }
+}
