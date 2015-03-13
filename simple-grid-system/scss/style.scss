@@ -2,7 +2,7 @@
 |  | Variables
 \**/
 $MAX_COLS: 24;
-$SM: 768px; 
+$SM: 0px; 
 $MD: 992px;
 $LG: 1200px;
 
@@ -30,11 +30,29 @@ $LG: 1200px;
 @for $i from 1 through $MAX_COLS {
   .row-#{$i} {
     @for $j from 1 through $i {
-      .col-#{$j} {
-        width: calc(#{$j/$i}*100%);
+      @media (min-width:$SM) {
+        .col-sm-#{$j} {
+          width: calc(#{$j/$i}*100%);
+        }
+        .offset-sm-#{$j} {
+          margin-left: calc(#{$j/$i}*100%);
+        }
       }
-      .offset-#{$j} {
-        margin-left: calc(#{$j/$i}*100%);
+      @media(min-width:$MD) {
+        .col-md-#{$j} {
+          width: calc(#{$j/$i}*100%);
+        }
+        .offset-md-#{$j} {
+          margin-left: calc(#{$j/$i}*100%);
+        }
+      }
+      @media(min-width:$LG) {
+        .col-lg-#{$j} {
+          width: calc(#{$j/$i}*100%);
+        }
+        .offset-lg-#{$j} {
+          margin-left: calc(#{$j/$i}*100%);
+        }
       }
     }
   }
