@@ -1,0 +1,96 @@
+/**\
+|**| Constants
+\**/
+/**\
+|**| Mixins
+\**/
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+/**\
+|  | Styles
+\**/
+.hand-wrapper {
+  border: 1px solid red;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+}
+.hand-wrapper .hand {
+  border: 1px solid blue;
+  display: inline-block;
+}
+.hand-wrapper .hand .card {
+  position: relative;
+  float: left;
+  background-color: #fff;
+  top: 0px;
+  width: 7em;
+  height: 9.8em;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: top 0.1s, box-shadow 0.2s;
+  -moz-transition: top 0.1s, box-shadow 0.2s;
+  transition: top 0.1s, box-shadow 0.2s;
+}
+.hand-wrapper .hand .card:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  top: -20px;
+}
+.hand-wrapper .hand .card.flipped {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.hand-wrapper .hand .card .front, .hand-wrapper .hand .card .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hand-wrapper .hand .card .front {
+  border: solid 1px green;
+}
+.hand-wrapper .hand .card .back {
+  border: solid 1px orange;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
