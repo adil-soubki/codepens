@@ -1,0 +1,546 @@
+/**\
+|**| Constants
+\**/
+/**\
+|**| Mixins
+\**/
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+/**\
+|  | Styles
+\**/
+.hand-wrapper {
+  border: 1px solid red;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+}
+.hand-wrapper .hand {
+  border: 1px solid blue;
+  display: inline-block;
+}
+.hand-wrapper .hand .card {
+  position: relative;
+  float: left;
+  background-color: #fff;
+  top: 0px;
+  width: 7em;
+  height: 9.8em;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: top 0.1s, box-shadow 0.2s;
+  -moz-transition: top 0.1s, box-shadow 0.2s;
+  transition: top 0.1s, box-shadow 0.2s;
+}
+.hand-wrapper .hand .card:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  top: -20px;
+}
+.hand-wrapper .hand .card.flipped {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.hand-wrapper .hand .card .front, .hand-wrapper .hand .card .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hand-wrapper .hand .card .front {
+  border: solid 1px green;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.hand-wrapper .hand .card .back {
+  border: solid 1px orange;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(1):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(1) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(2):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(2) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(2):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(2) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(3):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(3) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(3):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(3) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(3):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(3) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(4):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(4) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(4):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(4) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(4):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(4) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(4):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(4) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(5):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(5) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(5):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(5) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(5):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(5) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(5):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(5) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(5):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(5) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-9deg);
+  -moz-transform: rotate(-9deg);
+  -ms-transform: rotate(-9deg);
+  -o-transform: rotate(-9deg);
+  transform: rotate(-9deg);
+  left: 180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(6):nth-child(6), .hand-wrapper .hand .card:first-child:nth-last-child(6) ~ .card:nth-child(6) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-9deg);
+  -moz-transform: rotate(-9deg);
+  -ms-transform: rotate(-9deg);
+  -o-transform: rotate(-9deg);
+  transform: rotate(-9deg);
+  left: 180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(6), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(6) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(7):nth-child(7), .hand-wrapper .hand .card:first-child:nth-last-child(7) ~ .card:nth-child(7) {
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+  left: -180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-12deg);
+  -moz-transform: rotate(-12deg);
+  -ms-transform: rotate(-12deg);
+  -o-transform: rotate(-12deg);
+  transform: rotate(-12deg);
+  left: 240px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-9deg);
+  -moz-transform: rotate(-9deg);
+  -ms-transform: rotate(-9deg);
+  -o-transform: rotate(-9deg);
+  transform: rotate(-9deg);
+  left: 180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(6), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(6) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(7), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(7) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(8):nth-child(8), .hand-wrapper .hand .card:first-child:nth-last-child(8) ~ .card:nth-child(8) {
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+  left: -180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-12deg);
+  -moz-transform: rotate(-12deg);
+  -ms-transform: rotate(-12deg);
+  -o-transform: rotate(-12deg);
+  transform: rotate(-12deg);
+  left: 240px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-9deg);
+  -moz-transform: rotate(-9deg);
+  -ms-transform: rotate(-9deg);
+  -o-transform: rotate(-9deg);
+  transform: rotate(-9deg);
+  left: 180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(6), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(6) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(7), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(7) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(8), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(8) {
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+  left: -180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(9):nth-child(9), .hand-wrapper .hand .card:first-child:nth-last-child(9) ~ .card:nth-child(9) {
+  -webkit-transform: rotate(12deg);
+  -moz-transform: rotate(12deg);
+  -ms-transform: rotate(12deg);
+  -o-transform: rotate(12deg);
+  transform: rotate(12deg);
+  left: -240px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(1), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(1) {
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  left: 300px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(2), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(2) {
+  -webkit-transform: rotate(-12deg);
+  -moz-transform: rotate(-12deg);
+  -ms-transform: rotate(-12deg);
+  -o-transform: rotate(-12deg);
+  transform: rotate(-12deg);
+  left: 240px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(3), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(3) {
+  -webkit-transform: rotate(-9deg);
+  -moz-transform: rotate(-9deg);
+  -ms-transform: rotate(-9deg);
+  -o-transform: rotate(-9deg);
+  transform: rotate(-9deg);
+  left: 180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(4), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(4) {
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  left: 120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(5), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(5) {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  left: 60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(6), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(6) {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(7), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(7) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  left: -60px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(8), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(8) {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
+  left: -120px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(9), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(9) {
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+  left: -180px;
+}
+.hand-wrapper .hand .card:first-child:nth-last-child(10):nth-child(10), .hand-wrapper .hand .card:first-child:nth-last-child(10) ~ .card:nth-child(10) {
+  -webkit-transform: rotate(12deg);
+  -moz-transform: rotate(12deg);
+  -ms-transform: rotate(12deg);
+  -o-transform: rotate(12deg);
+  transform: rotate(12deg);
+  left: -240px;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
