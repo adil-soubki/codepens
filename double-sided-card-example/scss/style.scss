@@ -1,0 +1,44 @@
+$card-width: 7em;                      
+$card-height: ($card-width * 1.4);     
+$debug: true;
+
+.hand {
+  @if ($debug) {
+    border: solid 1px red;
+  }
+  display: inline-block;
+  text-align: center;
+  .card {
+    @if ($debug) {
+      border: solid 1px black;
+    }
+    &:hover, &.flipped {
+      @include transform(rotateY(180deg));
+    }
+    transition: 0.6s;
+	  transform-style: preserve-3d;
+	  position: relative;
+    float: left;
+    width: $card-width;
+    height: $card-height;    
+    .front, .back {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    /* front pane, placed above back */
+    .front {
+      @if ($debug) {
+        border: solid 1px green;
+      }
+      @include transform(rotateY(0deg));
+    }
+    .back {
+      @if ($debug) {
+        border: solid 1px blue;
+      }
+      @include transform(rotateY(180deg));
+    }
+  }
+}

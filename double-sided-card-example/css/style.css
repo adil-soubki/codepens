@@ -1,0 +1,44 @@
+.hand {
+  border: solid 1px red;
+  display: inline-block;
+  text-align: center;
+}
+.hand .card {
+  border: solid 1px black;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  float: left;
+  width: 7em;
+  height: 9.8em;
+  /* front pane, placed above back */
+}
+.hand .card:hover, .hand .card.flipped {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.hand .card .front, .hand .card .back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hand .card .front {
+  border: solid 1px green;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.hand .card .back {
+  border: solid 1px blue;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
