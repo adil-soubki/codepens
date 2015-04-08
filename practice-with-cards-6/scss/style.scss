@@ -84,42 +84,46 @@ $top-shadow-color: black;              // <insert description>
       border: 1px solid blue;
     }
     display: inline-block;
-    .card {
+    height: $card-height;
+    width: $card-width;
+    .card-wrapper {
       position: absolute;
-      left: 50%;
-      //position: relative;
-      //float: left;
-      //display: block;
-      background-color: #fff;
-      top: 0px;
-      width: $card-width;
-      height: $card-height;
-      @include shadow(1);
-      @include transform-style(preserve-3d);
-      @include transition(top 0.1s, box-shadow 0.2s); 
-      &:hover {
-        @include shadow(2);
-        top: -20px;
-      }
-      &.flipped { 
-        // Doesnt work because of greensock tweens
-        // Will only work on first page load cant be toggled
-        @include transform(rotateY(180deg));
-      }
-      .front, .back {
-        @include backface-visibility(hidden);
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-      .front {
-        @if ($debug) {
-          border: solid 1px green;
+      .card {
+        position: relative;
+        //float: left;
+        display: block;
+        background-color: #fff;
+        top: 0px;
+        width: $card-width;
+        height: $card-height;
+        z-index: 1;
+        @include shadow(1);
+        @include transform-style(preserve-3d);
+        @include transition(top 0.1s, box-shadow 0.2s); 
+        &:hover {
+          @include shadow(2);
+          top: -20px;
         }
-      }
-      .back {
-        @if ($debug) {
-          border: solid 1px orange;
+        &.flipped { 
+          // Doesnt work because of greensock tweens
+          // Will only work on first page load cant be toggled
+          @include transform(rotateY(180deg));
+        }
+        .front, .back {
+          @include backface-visibility(hidden);
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        .front {
+          @if ($debug) {
+            border: solid 1px green;
+          }
+        }
+        .back {
+          @if ($debug) {
+            border: solid 1px orange;
+          }
         }
       }
     }

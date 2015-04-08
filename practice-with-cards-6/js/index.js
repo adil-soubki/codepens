@@ -50,7 +50,7 @@ Draggable.create($('.card'), draggableDefaults);
 |  | Hand/Card
 \**/
 var card = {
-  html: '<div class="card"><div class="front"></div><div class="back"></div></div>'
+  html: '<div class="card-wrapper"><div class="card"><div class="front"></div><div class="back"></div></div></div>'
 }
 
 var hand = {
@@ -74,7 +74,7 @@ var hand = {
   gutterConstant: 60,
   gutterWidth: function(index) {
     var gutter = Math.floor(hand.handSize()/2)*this.gutterConstant;
-    return gutter + this.gutterConstant*-index;
+    return -(gutter + this.gutterConstant*-index);
   },
   flip: function($card) {
     TweenMax.to($card, 0, {rotationY: 180});
@@ -121,6 +121,6 @@ $(function main() {
 	//hand.flip(hand.card(3));
   // Test adding cards to hand
   $('body').click(function() {
-  	//hand.addCard();
+  	hand.addCard();
 	});
 });

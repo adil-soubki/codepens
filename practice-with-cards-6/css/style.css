@@ -40,14 +40,20 @@
 .hand-wrapper .hand {
   border: 1px solid blue;
   display: inline-block;
+  height: 9.8em;
+  width: 7em;
 }
-.hand-wrapper .hand .card {
+.hand-wrapper .hand .card-wrapper {
   position: absolute;
-  left: 50%;
+}
+.hand-wrapper .hand .card-wrapper .card {
+  position: relative;
+  display: block;
   background-color: #fff;
   top: 0px;
   width: 7em;
   height: 9.8em;
+  z-index: 1;
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -58,28 +64,28 @@
   -moz-transition: top 0.1s, box-shadow 0.2s;
   transition: top 0.1s, box-shadow 0.2s;
 }
-.hand-wrapper .hand .card:hover {
+.hand-wrapper .hand .card-wrapper .card:hover {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
   top: -20px;
 }
-.hand-wrapper .hand .card.flipped {
+.hand-wrapper .hand .card-wrapper .card.flipped {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-.hand-wrapper .hand .card .front, .hand-wrapper .hand .card .back {
+.hand-wrapper .hand .card-wrapper .card .front, .hand-wrapper .hand .card-wrapper .card .back {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
 }
-.hand-wrapper .hand .card .front {
+.hand-wrapper .hand .card-wrapper .card .front {
   border: solid 1px green;
 }
-.hand-wrapper .hand .card .back {
+.hand-wrapper .hand .card-wrapper .card .back {
   border: solid 1px orange;
 }
 
