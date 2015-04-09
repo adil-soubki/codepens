@@ -82,6 +82,11 @@ var hand = {
   },
   layout: function() {
     hand.cards().each(function(index) {
+      // Example of custom layout for hand based on size
+      if (hand.cards().length >= 7) {
+        hand.gutterConstant = 40;
+        hand.fanningConstant = -6;
+      }
       TweenMax.to($(this), 0.3, {rotation: hand.fanningAngle(index), left: hand.gutterWidth(index)});
     });
     TweenMax.to($('.front'), 0.3, {rotationY: 0});
